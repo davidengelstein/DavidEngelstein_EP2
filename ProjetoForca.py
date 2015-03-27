@@ -1,40 +1,40 @@
 #DavidEngelstein
 from turtle import *
-t1=
-window = Screen()    
+t1 = Turtle()
+window = Screen() 
 window.bgcolor("lightblue")
 window.title("Jogo da Forca")
 
 
-speed(5)  
-penup()      
-setpos(-250,-200)
+t1.speed(5)  
+t1.penup()      
+t1.setpos(-250,-200)
 
 
-pendown()
-color("black")
+t1.pendown()
+t1.color("black")
 
 
 def forca():  
     
-    left(90)  
-    forward(400) 
-    right(90)  
-    forward(150)
-    right(90)  
-    forward(50) 
-    left(90)
-    forward(50)
-    left(90)
-    forward(100)
-    left(90)
-    forward(250)
-    left(90)
-    fd(450)
-    left(90)
-    forward(50)
-    penup()
-    fd(50)
+    t1.left(90)  
+    t1.forward(400) 
+    t1.right(90)  
+    t1.forward(150)
+    t1.right(90)  
+    t1.forward(50) 
+    t1.left(90)
+    t1.forward(50)
+    t1.left(90)
+    t1.forward(100)
+    t1.left(90)
+    t1.forward(250)
+    t1.left(90)
+    t1.fd(450)
+    t1.left(90)
+    t1.forward(50)
+    t1.penup()
+    t1.fd(50)
 forca()
   
 palavras=open("entrada.txt", encoding="utf-8")
@@ -50,54 +50,93 @@ print(sorteio)
 
 for i in sorteio:
     if i == " ":
-        penup()
-        fd(30)
+        t1.penup()
+        t1.fd(40)
+        
     else:
-        pendown()
-        fd(30)
-        penup()
-        fd(7)
+        t1.pendown()
+        t1.fd(30)
+        t1.penup()
+        t1.fd(10)
+        t1.penup
 
 def cabeca():
-    penup()
-    setpos(-75,150)
-    pendown()
-    left(180)
-    circle(40)
+    t1.penup()
+    t1.setpos(-75,150)
+    t1.pendown()
+    t1.left(180)
+    t1.circle(40)
+    t1.penup()
 
 def corpo():
-    penup()
-    setpos(-75,70)
-    pendown()
-    setpos(-75,-100)
+    t1.penup()
+    t1.setpos(-75,70)
+    t1.pendown()
+    t1.setpos(-75,-100)
+    t1.penup()
     
 def perna1():
-    penup()
-    setpos(-75,-100)
-    pendown()
-    left(45)
-    fd(100)
+    t1.penup()
+    t1.setpos(-75,-100)
+    t1.pendown()
+    t1.left(45)
+    t1.fd(100)
+    t1.penup()
     
 def perna2():
-    penup()
-    setpos(-75,-100)
-    pendown()
-    left(90)
-    fd(100)
+    t1.penup()
+    t1.setpos(-75,-100)
+    t1.pendown()
+    t1.left(90)
+    t1.fd(100)
+    t1.penup()
     
 def braco1():
-    penup()
-    setpos(-75,25)
-    pendown()
-    fd(100)
+    t1.penup()
+    t1.setpos(-75,25)
+    t1.pendown()
+    t1.fd(100)
+    t1.penup()
     
 def braco2():
-    penup()
-    setpos(-75,25)
-    pendown()
-    right(90)
-    fd(100)
+    t1.penup()
+    t1.setpos(-75,25)
+    t1.pendown()
+    t1.right(90)
+    t1.fd(100)
+    t1.penup()
 
-variavel_texto = window.textinput("Nome Janela", "Texto Pergunta")        
-  
-exitonclick()
+erro = 0 
+while erro<=6:    
+     
+    variavel = window.textinput("Nome Janela", "Texto Pergunta")    
+    for i in range(len(sorteio)):
+        
+        if variavel == sorteio[i]:
+            t1.setpos(-200+i*40,-200)
+            pendown()
+            t1.write (variavel)
+            penup()
+    if variavel not in sorteio:
+            erro=erro+1
+            print(erro)
+                    
+            if erro == 1:
+                cabeca()
+            if erro == 2:
+                corpo()
+            if erro == 3:
+                perna1()
+            if erro == 4:
+                perna2()
+            if erro == 5:
+                braco1()
+            if erro == 6:
+                braco2()
+                print('vc perdeu')
+                break    
+                
+            
+            
+         
+exitonclick()    

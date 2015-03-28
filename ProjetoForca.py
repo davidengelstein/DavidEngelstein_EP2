@@ -9,14 +9,14 @@ window.title("Jogo da Forca")
 t1.speed(5)  
 t1.penup()      
 t1.setpos(-250,-200)
-
+t1.hideturtle
 
 t1.pendown()
 t1.color("black")
 
 
 def forca():  
-    
+    t1.ht()
     t1.left(90)  
     t1.forward(400) 
     t1.right(90)  
@@ -59,6 +59,7 @@ for i in sorteio:
         t1.penup()
         t1.fd(10)
         t1.penup
+        ht()
 
 def cabeca():
     t1.penup()
@@ -106,17 +107,22 @@ def braco2():
     t1.fd(100)
     t1.penup()
 
+acertos = 0
 erro = 0 
-while erro<=6:    
-     
-    variavel = window.textinput("Nome Janela", "Texto Pergunta")    
+
+while erro<6 and acertos<len(sorteio):
+    
+    variavel = window.textinput("Nome Janela", "Texto Pergunta")   
     for i in range(len(sorteio)):
         
         if variavel == sorteio[i]:
             t1.setpos(-200+i*40,-200)
             pendown()
-            t1.write (variavel)
+            t1.write (variavel, font='arial, 14')
+            acertos=acertos+1
             penup()
+
+            
     if variavel not in sorteio:
             erro=erro+1
             print(erro)
@@ -133,8 +139,20 @@ while erro<=6:
                 braco1()
             if erro == 6:
                 braco2()
-                print('vc perdeu')
-                break    
+if erro>=6:
+    t1.penup()
+    t1.setpos(0,0)
+    t1.pendown()
+    t1.write ('VOCE MORREU', font=('arial', 20))
+    t1.penup()
+    
+if acertos == float(len(sorteio)):
+    t1.penup()
+    t1.setpos(0,0)
+    t1.pendown()
+    t1.write ('VOCE GANHOU', font=('arial', 20))
+    t1.penup()
+    
                 
             
             

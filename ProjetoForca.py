@@ -7,7 +7,6 @@ window.bgcolor("lightblue")
 window.title("Jogo da Forca")
 
 
-
 def forca():  
     t1.ht()
     t1.left(90)  
@@ -30,6 +29,7 @@ def forca():
     t1.fd(50)
 palavras_usadas = []
 continuar = 'sim'
+
 while continuar  =='sim':
     t1.setheading(0)
     t1.speed(5)  
@@ -116,13 +116,16 @@ while continuar  =='sim':
         t1.right(90)
         t1.fd(100)
         t1.penup()
+        
     
     acertos = 0
     erros = 0 
     while erros<6 and acertos<len(sorteio)-sorteio.count(' '):
-            
-        variavel = window.textinput("Nome Janela", "Texto Pergunta")  
+           
+        variavel = window.textinput(" ", "Escolha uma letra:")  
         variavel = variavel.upper()
+        
+        
         if variavel not in letras_chutadas:
             letras_chutadas.append(variavel)
             for i in range(len(sorteio)):
@@ -160,7 +163,7 @@ while continuar  =='sim':
                     
                 
                     
-            if variavel not in sorteio:
+            if variavel not in sorteio and len(variavel)==1:            
                     erros=erros+1
                     print(erros)
                             
@@ -176,11 +179,21 @@ while continuar  =='sim':
                         braco1()
                     if erros == 6:
                         braco2()
+                        
+            if len(variavel)!=1:
+                t2 = Turtle()
+                t2.hideturtle()
+                t2.write ('letra invalida', font=('arial', 20))
+                time.sleep(1.5)
+                t2.clear()
+                
+                    
         else:
-            t2 = Turtle()
-            t2.write ('letra já inserida', font=('arial', 20))
+            t3 = Turtle()
+            t3.hideturtle()
+            t3.write ('letra já inserida', font=('arial', 20))
             time.sleep(1.5)
-            t2.clear()
+            t3.clear()
             
     if erros>=6:
         t1.penup()
@@ -188,9 +201,9 @@ while continuar  =='sim':
         t1.pendown()
         t1.write ('VOCE MORREU', font=('arial', 20))
         t1.penup()
-        t1.setpos(200,200)
+        t1.setpos(50,200)
         t1.pendown()
-        t1.write ('PLACAR:' + str(acertos+erros), font=('arial', 20))        
+        t1.write ('PLACAR:' + str(len(letras_chutadas)) + ' tentativas', font=('arial', 20))        
         
     if acertos == len(sorteio)-sorteio.count(' '):
         t1.penup()
@@ -198,17 +211,16 @@ while continuar  =='sim':
         t1.pendown()
         t1.write ('VOCE GANHOU', font=('arial', 20))
         t1.penup()
-        t1.setpos(200,200)
+        t1.setpos(50,200)
         t1.pendown()
-        t1.write ('PLACAR:' + str(acertos+erros), font=('arial', 20))
+        t1.write ('PLACAR:' + str(len(letras_chutadas)) + ' tentativas', font=('arial', 20))
 
     if len(palavras_usadas)!=len(lista):
-        continuar = window.textinput("", "VOCÊ QUER JOGAR NOVAMENTE?")
+        continuar = window.textinput("", "VOCÊ QUER JOGAR NOVAMENTE? Digite sim ou nao")
         t1.clear()
     else:
         continuar = 'nao'
 
-    
                 
             
 exitonclick()    

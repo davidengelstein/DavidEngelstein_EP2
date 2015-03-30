@@ -187,7 +187,10 @@ while continuar  =='sim':
         t1.setpos(0,0)
         t1.pendown()
         t1.write ('VOCE MORREU', font=('arial', 20))
-        t1.penup()        
+        t1.penup()
+        t1.setpos(200,200)
+        t1.pendown()
+        t1.write ('PLACAR:' + str(acertos+erros), font=('arial', 20))        
         
     if acertos == len(sorteio)-sorteio.count(' '):
         t1.penup()
@@ -195,6 +198,9 @@ while continuar  =='sim':
         t1.pendown()
         t1.write ('VOCE GANHOU', font=('arial', 20))
         t1.penup()
+        t1.setpos(200,200)
+        t1.pendown()
+        t1.write ('PLACAR:' + str(acertos+erros), font=('arial', 20))
 
     if len(palavras_usadas)!=len(lista):
         continuar = window.textinput("", "VOCÊ QUER JOGAR NOVAMENTE?")

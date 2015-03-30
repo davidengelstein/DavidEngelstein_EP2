@@ -14,6 +14,7 @@ t1.hideturtle
 t1.pendown()
 t1.color("black")
 
+letras_chutadas=[]
 
 def forca():  
     t1.ht()
@@ -47,19 +48,21 @@ for i in leitura:
 from random import choice
 sorteio = choice(lista)
 print(sorteio)
-
-for i in sorteio:
-    if i == " ":
-        t1.penup()
-        t1.fd(40)
-        
-    else:
-        t1.pendown()
-        t1.fd(30)
-        t1.penup()
-        t1.fd(10)
-        t1.penup
-        ht()
+sorteio=sorteio.upper()
+def desenhar_tracos():
+    for i in sorteio:
+        if i == " ":
+            t1.penup()
+            t1.fd(40)
+                
+        else:
+            t1.pendown()
+            t1.fd(30)
+            t1.penup()
+            t1.fd(10)
+            t1.penup
+            ht()
+desenhar_tracos()
 
 def cabeca():
     t1.penup()
@@ -109,42 +112,75 @@ def braco2():
 
 acertos = 0
 erro = 0 
-
 while erro<6 and acertos<len(sorteio):
-    
-    variavel = window.textinput("Nome Janela", "Texto Pergunta")   
-    for i in range(len(sorteio)):
         
-        if variavel == sorteio[i]:
-            t1.setpos(-200+i*40,-200)
-            pendown()
-            t1.write (variavel, font='arial, 14')
-            acertos=acertos+1
-            penup()
-
+    variavel = window.textinput("Nome Janela", "Texto Pergunta")  
+    variavel = variavel.upper()
+    if variavel not in letras_chutadas:
+        letras_chutadas.append(variavel)
+        for i in range(len(sorteio)):
             
-    if variavel not in sorteio:
-            erro=erro+1
-            print(erro)
-                    
-            if erro == 1:
-                cabeca()
-            if erro == 2:
-                corpo()
-            if erro == 3:
-                perna1()
-            if erro == 4:
-                perna2()
-            if erro == 5:
-                braco1()
-            if erro == 6:
-                braco2()
+            if variavel == sorteio[i]:
+                t1.setpos(-200+i*40,-200)
+                pendown()
+                t1.write (sorteio[i], font='arial, 14')
+                acertos=acertos+1
+                penup()
+            elif variavel == 'A' and sorteio[i] == 'Ã':
+                t1.setpos(-200+i*40,-200)
+                pendown()
+                t1.write (sorteio[i], font='arial, 14')
+                acertos=acertos+1
+                penup()
+            elif variavel == 'E' and sorteio[i] == 'Ê':
+                t1.setpos(-200+i*40,-200)
+                pendown()
+                t1.write (sorteio[i], font='arial, 14')
+                acertos=acertos+1
+                penup()
+            elif variavel == 'I' and sorteio[i] == 'Í':
+                t1.setpos(-200+i*40,-200)
+                pendown()
+                t1.write (sorteio[i], font='arial, 14')
+                acertos=acertos+1
+                penup()
+            elif variavel == 'O' and (sorteio[i] == 'Ó'or sorteio[i] == 'Ô'):
+                t1.setpos(-200+i*40,-200)
+                pendown()
+                t1.write (sorteio[i], font='arial, 14')
+                acertos=acertos+1
+                penup()
+                
+            
+                
+        if variavel not in sorteio:
+                erro=erro+1
+                print(erro)
+                        
+                if erro == 1:
+                    cabeca()
+                if erro == 2:
+                    corpo()
+                if erro == 3:
+                    perna1()
+                if erro == 4:
+                    perna2()
+                if erro == 5:
+                    braco1()
+                if erro == 6:
+                    braco2()
+    else:
+        t2 = Turtle()
+        t2.write ('VOCE MORREU', font=('arial', 20))
+        t2.clear()
+        
 if erro>=6:
     t1.penup()
     t1.setpos(0,0)
     t1.pendown()
     t1.write ('VOCE MORREU', font=('arial', 20))
     t1.penup()
+    
     
 if acertos == float(len(sorteio)):
     t1.penup()
@@ -155,6 +191,4 @@ if acertos == float(len(sorteio)):
     
                 
             
-            
-         
 exitonclick()    

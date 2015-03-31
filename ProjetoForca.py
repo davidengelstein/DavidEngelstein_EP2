@@ -237,7 +237,7 @@ while continuar  =='sim': #enquanto o jogador digitar sim, outra forca se inicia
         t1.penup()
         t1.setpos(50,150)
         t1.pendown()
-        t1.write ('MEDIA DE ERROS:' + str((erros_total)/len(palavras_usadas)) + ' erros', font=('arial', 16))
+        t1.write ('MÉDIA DE ERROS:' + str((erros_total)/len(palavras_usadas)) + ' erros', font=('arial', 16))
         #digita a media de erros por rodada
         t1.penup()
         
@@ -247,7 +247,7 @@ while continuar  =='sim': #enquanto o jogador digitar sim, outra forca se inicia
         t1.penup()
         t1.setpos(0,0)
         t1.pendown()
-        t1.write ('PARABENS, VOCE GANHOU', font=('arial', 16)) #escreve que você ganhou
+        t1.write ('PARABÉNS, VOCÊ GANHOU', font=('arial', 16)) #escreve que você ganhou
         t1.penup()
         t1.setpos(50,200)
         t1.pendown()
@@ -256,7 +256,7 @@ while continuar  =='sim': #enquanto o jogador digitar sim, outra forca se inicia
         t1.penup()
         t1.setpos(50,150)
         t1.pendown()
-        t1.write ('MEDIA DE ERROS:' + str((erros_total)/len(palavras_usadas)) + ' erros', font=('arial', 16))
+        t1.write ('MÉDIA DE ERROS:' + str((erros_total)/len(palavras_usadas)) + ' erros', font=('arial', 16))
         #escreve a média de erros em todas as rodadas
         t1.penup()
         
@@ -276,7 +276,7 @@ while continuar  =='sim': #enquanto o jogador digitar sim, outra forca se inicia
         t1.penup()
         t1.setpos(-300,50)
         t1.pendown()
-        t1.write ('MEDIA DE ERROS:' + str((erros_total)/len(palavras_usadas)) + ' erros', font=('arial', 16))
+        t1.write ('MÉDIA DE ERROS:' + str((erros_total)/len(palavras_usadas)) + ' erros', font=('arial', 16))
         #escreve a media de erros de todas as rodadas
         t1.penup()
         

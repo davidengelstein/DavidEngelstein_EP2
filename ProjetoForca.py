@@ -1,6 +1,7 @@
 #DavidEngelstein
 from turtle import * 
 import time
+import string
 t1 = Turtle()
 window = Screen() 
 window.bgcolor("lightblue")
@@ -185,7 +186,7 @@ while continuar  =='sim': #enquanto o jogador digitar sim, outra forca se inicia
                     found=1
                 
                     
-            if found==0 and len(variavel)==1 and variavel!=" " : 
+            if found==0 and len(variavel)==1 and variavel!=" " and variavel not in string.digits : 
             #se a letra digitada for tiver 1 caractér e ser diferente de espaço, 
             #é valida, mas a letra não esta na palavra
                     erros=erros+1 #adiciona 1 a variavel erro
@@ -206,7 +207,7 @@ while continuar  =='sim': #enquanto o jogador digitar sim, outra forca se inicia
                     if erros == 6:
                         braco2() #chama a função que desenha a braco2
                         
-            if len(variavel)!=1 or variavel==" ": #se a letra digitada(variavel)
+            if len(variavel)!=1 or variavel==" " or variavel in string.digits : #se a letra digitada(variavel)
             #tiver um número de caracteres diferentes de 1 ou igual a espaço, 
             #escreva que a palavra é inválida
                 t2 = Turtle()

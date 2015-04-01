@@ -59,7 +59,7 @@ while continuar  =='sim': #enquanto o jogador digitar sim, outra forca se inicia
     #se a palvra sorteada ja tiver sido usada, o soreteio ocorre de novo
         sorteio = choice(lista_palavras)#sorteia novamente
         
-    print(sorteio)
+    print('Resposta:'+ sorteio)
     palavras_usadas.append(sorteio) #adociona o sorteio a lista de palavras usadas 
     sorteio=sorteio.upper()#todas as letras viram maiúsculas
     def desenhar_tracos():#desenha os traços 
@@ -192,7 +192,7 @@ while continuar  =='sim': #enquanto o jogador digitar sim, outra forca se inicia
                     erros=erros+1 #adiciona 1 a variavel erro
                     erros_total=erros_total+1 #adiciona 1 a variavel erro_total
                     #para o calculo da média
-                    print(erros_total)
+                    
                             
                     if erros == 1:
                         cabeca() #chama a função que desenha a cabeça
@@ -212,7 +212,7 @@ while continuar  =='sim': #enquanto o jogador digitar sim, outra forca se inicia
             #escreva que a palavra é inválida
                 t2 = Turtle()
                 t2.hideturtle()
-                t2.write ('letra invalida', font=('arial', 16))
+                t2.write ('letra inválida', font=('arial', 16))
                 time.sleep(1.5)
                 t2.clear()
                 
